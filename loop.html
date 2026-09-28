@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loops</title>
+</head>
+<body>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #eee;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <div class="muliplication">
+        <h1>multiplication </h1>
+    <input type="number" id="num" placeholder="enter you number">
+    <button onclick="mult()">see it multiplication</button>
+
+    <div id="result">result:</div>
+    </div>
+
+<script>
+        function mult(){
+        var num= Number(document.getElementById("num").value)
+        var i=1;
+        var result=0;
+        while(i<=10){
+            var result=num*i;
+                        document.write(result +"<br/>");
+                        i++;
+        }
+        }
+    </script>
+</body>
+</html>

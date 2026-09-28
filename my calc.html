@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #eee;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>simple calculator</h2>
+    <input type="number" id="num1" placeholder="first num"><br/>
+    <select id ="operator">
+ <option value="+">add</option>
+  <option value="-">sub</option>
+   <option value="*">mult</option>
+    <option value="/">div</option>
+        
+
+    </section><br/><br/>
+        <input type="number" id="num2" placeholder="second num"><br/>
+        <button onclick="calculate()">calculate</button><br/>
+        <div id="result">Result:</div>
+        </div>
+          <script>
+            function calculate(){
+               //variables
+                let num1= Number(document.getElementById("num1").value);
+                  let num2= Number(document.getElementById("num2").value);
+                  let operator= document.getElementById("operator").value;
+                let result;
+                if (operator === "+"){
+                result = num1 + num2;}
+              else if(operator ==="-"){
+                result = num1 - num2;
+              }
+               else if(operator ==="*"){
+                result = num1 * num2;
+              }
+            else if (operator === "/") {
+                if (num2 === 0) {
+                    result = "Cannot divide by zero";
+                } else {
+                    result =num1/num2
+                }
+                
+              }
+               document.getElementById("result").textContent =" Result:"+ result;
+            }
+
+          </script> 
+</html>
