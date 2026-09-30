@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xyz company</title>
+    <link rel="stylesheet" href="money.css">
+</head>
+<body>
+  
+    
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .marks {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input,  button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        select{
+            
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #eee;
+            text-align: center;
+            font-weight: bold;
+        }
+    
+    </style>
+    <div class="xzy">
+    <h1>xzy company</h1>
+    <p>currancy exchange platform</p>
+    <input type="number" id="money" placeholder="amount:">
+    <select id="from" name="from">
+       
+
+                    <option value="RWF">Rwanda - RWF</option>
+                    <option value="USD">USD - $</option>
+                    <option value="EUR">EUR - €</option>
+                    <option value="GBP">GBP - £</option>
+    </select>
+
+                <select id="to" name="to">
+                    <option value="USD">USD - $</option>
+                    <option value="EUR">EUR - €</option>
+                    <option value="GBP">GBP - £</option>
+                    <option value="RWF">Rwanda - RWF</option>
+                </select><br/>
+                <button onclick="converting()">convert</button>
+                <div id="result">result:</div>
+    </div>
+    <script>
+        function converting(){
+            var money=Number(document.getElementById("money").value);
+
+            var from = document.getElementById("from").value;
+               var to=document.getElementById("to").value;
+
+            var result = document.getElementById("result");
+
+            if (money <= 0) {
+                result.innerHTML = "Please enter a valid amount.";
+            }
+
+            else if (from == "" || to == "") {
+                result.innerHTML = "Please select both currencies.";
+            }
+            else if (from == to) {
+                result.innerHTML = money;
+            }
+            else if (from == "USD" && to == "RWF") {
+                var answer = money * 103;
+                result.innerHTML = answer.toFixed(0);
+            }
+            else if (from == "RWF" && to == "USD") {
+                var answer = money / 103;
+                result.innerHTML = answer.toFixed(2);
+            }
+            else if (from == "EUR" && to == "RWF") {
+                var answer = money * 112;
+                result.innerHTML = answer.toFixed(0);
+
+            }
+            else if (from == "RWF" && to == "EUR") {
+                var answer = money / 112;
+                result.innerHTML = answer.toFixed(2);
+            }
+            else if (from == "GBP" && to == "RWF") {
+                var answer = money * 132;
+                result.innerHTML = answer.toFixed(0);
+            }
+            else if (from == "RWF" && to == "GBP") {
+                var answer = money / 132;
+                result.innerHTML = answer.toFixed(2);
+            }
+            else if (from == "USD" && to == "EUR") {
+                var answer = money * 103 / 112;
+                result.innerHTML = answer.toFixed(2);
+            }
+            else if (from == "EUR" && to == "USD") {
+                var answer = money * 112 / 103;
+                result.innerHTML = answer.toFixed(2);
+            }
+            else if (from == "USD" && to == "GBP") {
+          var answer = money * 103 / 132;
+                result.innerHTML = answer.toFixed(2);
+
+            }
+            else if (from == "GBP" && to == "USD") {
+                var answer = money * 132 / 103;          result.innerHTML = answer.toFixed(2);
+            }
+            else if (from == "EUR" && to == "GBP") {
+                var answer = money * 112 / 132;
+                result.innerHTML = answer.toFixed(2);
+            }
+            else if (from == "GBP" && to == "EUR") {
+                var answer = money * 132 / 112;
+                result.innerHTML = answer.toFixed(2);
+            }
+            else {
+                result.innerHTML = "Conversion not available.";
+            }
+        }
+    </script>
+</body>
+</html>
